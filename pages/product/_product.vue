@@ -2,21 +2,18 @@
   <section :key="product._id">
     <ul class="categories">
       <li>
-        <router-link
-          :to="'/vendor/' + product.vendor.slug.current"
-          class="vendor"
-        >
+        <NuxtLink :to="'/vendor/' + product.vendor.slug.current" class="vendor">
           <SanityImage
             :asset-id="product.vendor.logo.asset._ref"
             class="vendorLogo"
           />
-        </router-link>
+        </NuxtLink>
         {{ product.vendor.title }}
       </li>
       <li v-for="category in product.categories" :key="category._id">
-        <router-link :to="'/category/' + category.slug.current">
+        <NuxtLink :to="'/category/' + category.slug.current">
           {{ category.title }}
-        </router-link>
+        </NuxtLink>
       </li>
     </ul>
 
@@ -40,9 +37,9 @@
           </div>
         </div>
         <SanityContent
+          v-if="product.body"
           class="body"
           :blocks="product.body"
-          v-if="product.body"
         />
       </div>
       <div class="sidebar">
@@ -57,7 +54,6 @@
 
 <script>
 import localize from '~/utils/localize'
-import numeral from 'numeral'
 
 const query = `
   *[_type == "product" && slug.current == $product][0] {
@@ -74,15 +70,12 @@ export default {
       .fetch(query, params)
       .then((data) => ({ product: localize(data) }))
   },
-  data() {
-    return {
-      blurb: 'No blurb text to show',
-      body: false,
-    }
-  },
   computed: {
-    formattedPrice: function () {
-      return numeral(this.product.defaultProductVariant.price).format('$0.00')
+    formattedPrice() {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      }).format(this.product.defaultProductVariant.price)
     },
   },
 }
@@ -143,6 +136,7 @@ export default {
 }
 
 .categories {
+  list-style-type: none;
   margin: 0;
   display: flex;
   align-items: center;
