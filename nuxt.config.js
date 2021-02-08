@@ -4,6 +4,9 @@ export default {
    ** See https://nuxtjs.org/api/configuration-target
    */
   target: 'static',
+
+  // https://nuxtjs.org/api/configuration-modern/
+  modern: process.env.NODE_ENV === 'production',
   /*
    ** Headers of the page
    */
@@ -27,7 +30,7 @@ export default {
   /*
    ** Load categories and vendors
    */
-  plugins: [],
+  plugins: ['~/plugins/sanity-image-builder'],
   /** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
