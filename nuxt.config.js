@@ -30,7 +30,7 @@ export default {
   /*
    ** Load categories and vendors
    */
-  plugins: [],
+  plugins: ['~/plugins/sanity-image-builder'],
   /** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
@@ -51,7 +51,7 @@ export default {
 
   // https://sanity.nuxtjs.org
   sanity: {
-    projectId: '5zj51uy1',
+    projectId: 'ru2xdibx',
     minimal: true,
     useCdn: false,
     dataset: 'production',
@@ -59,7 +59,7 @@ export default {
 
   snipcart: {
     key:
-      'OWQ1NGI5ZTUtNDViYi00NTBhLWFkOTItOWIzMjM1YTRiNmY2NjM3NDc2NzY1OTA4MDY0NTA1',
+      'ODRkNmJhZDktOTk5YS00Y2Y1LTk5Y2ItMTkzNTlkZTYxNzhmNjM2NTk1NTI2OTgyMTc1MTUy',
   },
   generate: {
     fallback: true,
