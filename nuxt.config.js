@@ -51,7 +51,7 @@ export default {
 
   // https://sanity.nuxtjs.org
   sanity: {
-    projectId: 'ru2xdibx',
+    projectId: '5zj51uy1',
     minimal: true,
     useCdn: false,
     dataset: 'production',
@@ -59,7 +59,7 @@ export default {
 
   snipcart: {
     key:
-      'ODRkNmJhZDktOTk5YS00Y2Y1LTk5Y2ItMTkzNTlkZTYxNzhmNjM2NTk1NTI2OTgyMTc1MTUy',
+      'OWQ1NGI5ZTUtNDViYi00NTBhLWFkOTItOWIzMjM1YTRiNmY2NjM3NDc2NzY1OTA4MDY0NTA1',
   },
   generate: {
     fallback: true,
